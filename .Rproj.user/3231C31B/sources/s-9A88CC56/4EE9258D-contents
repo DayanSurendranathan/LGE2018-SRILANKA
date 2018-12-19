@@ -39,9 +39,9 @@ path.t <- paste(work.d,"/",output.folders[5], "/", sep="") #tables
 
 ###============= CLEANING DATA ====================###
 
-voter.db <- read.csv("raw.voter.ethnic.data.csv")
-
 setwd(path.rd)
+
+voter.db <- read.csv("raw.voter.ethnic.data.csv")
 
 View(voter.db) #view the data
 
@@ -51,8 +51,6 @@ str(voter.db) #check the structure
 voter.db <- voter.db[order(voter.db$population, decreasing = "TRUE"),]
 
 View(voter.db) #check the ordered data
-
-write.csv(voter.db, "voterDB.csv")
 
 #Attach a label, ethnic majority or minority to the database
 

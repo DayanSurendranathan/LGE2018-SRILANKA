@@ -1,0 +1,59 @@
+
+#Try to visualise population
+library(ggplot2)
+library(ggthemes)
+options(scipen = 999)
+
+#X-Axis and labels
+brks <- seq(0, 400000, by = 50000)
+lbls = paste0(as.character(c(seq(0, 400, 50)), "k"))
+
+#Plot
+
+
+
+
+
+
+for (i in 1:length(cat.voter)) {
+  if (voter.db$sinhala.buddhist > voter.db$minority) {
+    result <- print("Majority")
+  } else {
+    result2 <- print("Minority")
+  }
+}
+
+
+
+
+gg1 <- data.frame()
+ggplot(voter.db)
+
+
+test.df <- data.frame(voter.db$sinhala.buddhist, voter.db$slpp.votes)
+plot(test.df)
+
+test2.df <-data.frame(voter.db$minority, voter.db$unp.votes)
+plot(test2.df)
+
+unf.votes <- voter.db$unp.votes + voter.db$upfa.slfp.votes + voter.db$jvp.votes + voter.db$other.votes
+
+test3.df <- data.frame(voter.db$minority, unf.votes)
+plot(test3.df)
+
+test4.df <- data.frame(voter.db$tot.polled, voter.db$slpp.votes)
+plot(test4.df)
+
+populist <- chisq.test(test.df)
+summary(populist)
+
+lr1 <- lm(test.df$voter.db.sinhala.buddhist~test.df$voter.db.slpp.votes)
+sumlr1 <- summary(lr1)
+
+plot(sumlr1)
+
+plot(lr1)
+
+library(ggplot2)
+library(ggdendro)
+

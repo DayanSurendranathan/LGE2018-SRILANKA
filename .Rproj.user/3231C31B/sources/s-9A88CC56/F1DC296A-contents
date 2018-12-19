@@ -1,0 +1,22 @@
+setwd(path.g)
+png(filename ="SinhalaBuddhistSLPP.png")
+plot(main.db$sinhala.buddhist, main.db$slpp.votes,
+     xlim = range(main.db$sinhala.buddhist),
+     #this is set as the range because they have the highest population numbers
+     ylim = range(unf.total), pch = 19, col = "firebrick1",
+     #this is set as the range because the UNF has the higher total votes
+     xlab = "Population by ethnicity across LGAs",
+     ylab = "Votes received by corresponding party")
+#set the axis labels
+points(main.db$minority, main.db$unf.total, pch = 19, col = "green1")
+#add the minority data
+abline(pop.reg, col = "firebrick1")
+abline(min.reg, col = "green1")
+#set colours
+legend(90000, 150000, legend = c("Sinhala-Buddhist-SLPP", "Minority-UNF"),
+       pch = 15, col = c("firebrick1", "green1"))
+#change plot device from screen to disk
+dev.off()
+#Are the results the same with half the sample size?
+#this will tell us if the results vary depending on the location
+#or if it is consistent across the dataset
